@@ -1,0 +1,26 @@
+.container-1 {
+    margin: 0px auto;
+}
+.map-layout {
+    display: flex;
+    justify-content: center;
+}
+.map {
+    position: relative;
+    margin: 0px auto;
+}
+#floor {
+    border: 1px solid white;
+}
+h1 {
+    text-align: center;
+    color: aqua;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.startButton {
+    justify-content: center
+}
+p {
+    text-align: justify;
+    font-weight: 400
+}
