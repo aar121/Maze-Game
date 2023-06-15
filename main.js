@@ -29,13 +29,36 @@ function charactermove(direction) {
 }
 
 function BuildMaze() {
-    let maze = [];
-    maze[0] = {
-        floor: [
-            [1,1,1,1,1],
-            [1,1,1,1,1],
-            [1,1,1,1,1],
-            [1,1,1,1,1],
-    ]
-    }
+    let mazes = [];
+    mazes[0] = {
+        tile: [
+            [1,0,0,1,1],
+            [1,1,0,0,1],
+            [0,0,1,0,1],
+            [0,0,1,1,1],
+            [1,0,1,0,1]
+            //the 0s and 1s represent the map tiles, either a wal tile or a floor tile
+    ], 
+    character: {
+        x:0, 
+        y:4
+    },
+    //y and x are the coordinates for the character 
+    endTarget: {
+        x: 4,
+        y: 1
+    },
+    style:'black&white'
+    };  
+}
+
+function mazeGame(id, maze) {
+    this.prop = document.getElementById(id);
+    this.tiles = ['floor', 'wall'];
+    this.tilesDimension = 40; 
+    this.layer = maze.layer;
+    this.style = maze.style;
+    this.character = {...maze.character};
+    this.endTarget = {...maze.endTarget};
+    this.character.prop = null;
 }
