@@ -48,7 +48,7 @@ function BuildMaze() {
         x: 4,
         y: 1
     },
-    style:'black&white'
+    mapdesign:'black&white'
     };  
 }
 
@@ -57,19 +57,29 @@ function mazeGame(id, maze) {
     this.tileNames = ['floor', 'wall'];
     this.tilesDimension = 40; 
     this.map = maze.map;
-    this.style = maze.style;
+    this.mapdesign = maze.mapdesign;
     this.character = {...maze.character};
     this.endTarget = {...maze.endTarget};
     this.character.prop = null;
 }
 
 mazeGame.prototype.populatemap = function() {
-    this.prop.className = 'container ' + this.style;
+    this.prop.className = 'container ' + this.mapdesign;
     let tiles = document.getElementById('tiles');
     for (let y =0; y < this.maze.length; ++y) {
          for (let x = 0; x < this.maze[y].length; ++x) {
             let tileCode = this.map[y][x];
             let tileName = this.tileNames[tileCode];
          }
-    }   
+    }
+}   
+mazeGame.prototype.createProp = function(x,y,name) {
+    let prop = document.createElement('div');
+    prop.className = type;
+    prop.style.width = prop.style.height = this.tilesDimension + 'px';
+    prop.style.left = x*this.tilesDimension + 'px';
+    prop.style.top = y*this.tilesDimension + 'px';
+    return prop;
 }
+
+let tile = this.createProp(x, y, tileName);
