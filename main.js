@@ -54,11 +54,22 @@ function BuildMaze() {
 
 function mazeGame(id, maze) {
     this.prop = document.getElementById(id);
-    this.tiles = ['floor', 'wall'];
+    this.tileNames = ['floor', 'wall'];
     this.tilesDimension = 40; 
-    this.layer = maze.layer;
+    this.map = maze.map;
     this.style = maze.style;
     this.character = {...maze.character};
     this.endTarget = {...maze.endTarget};
     this.character.prop = null;
+}
+
+mazeGame.prototype.populatemap = function() {
+    this.prop.className = 'container ' + this.style;
+    let tiles = document.getElementById('tiles');
+    for (let y =0; y < this.maze.length; ++y) {
+         for (let x = 0; x < this.maze[y].length; ++x) {
+            let tileCode = this.map[y][x];
+            let tileName = this.tileNames[tileCode];
+         }
+    }   
 }
