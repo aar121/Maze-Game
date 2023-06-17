@@ -24,3 +24,15 @@ p {
     text-align: justify;
     font-weight: 400
 }
+div.map-layout, div.map-layout div {
+    position: absolute;
+}
+#floor div {
+    border: 1px solid grey;
+}
+.black&white .floor{
+    background-color: black;
+}
+.black&white .wall{
+    background-color: white;
+}

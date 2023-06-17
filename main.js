@@ -70,6 +70,8 @@ mazeGame.prototype.populatemap = function() {
          for (let x = 0; x < this.maze[y].length; ++x) {
             let tileCode = this.map[y][x];
             let tileName = this.tileNames[tileCode];
+            let tile = this.createProp(x, y, tileName);
+            tiles.appendChild(tile);
          }
     }
 }   
@@ -82,4 +84,8 @@ mazeGame.prototype.createProp = function(x,y,name) {
     return prop;
 }
 
-let tile = this.createProp(x, y, tileName);
+function init() {
+    let Game = new Game(container-1,mazes[0]);
+    mazeGame.populatemap();
+}
+init();
