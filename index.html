@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maze Game</title>
-    <link rel="stylesheet" href="assets/styles.css">
-</head>
-<body>
-    <div id="container-1" class="container">
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div id="body" class="main">
+      <div id="container-1" class="container">
         <div id="controls">
-            <div id="map-1" class="map">
-                <div id="floor" class="map-layout"></div>
-                <div id="character" class="map-layout"></div>
-                <div id="success">You win!</div>
-            </div>
+          <div id="map-1" class="map">
+            <div id="tiles" class="maplayout"></div>
+            <div id="floor" class="maplayout"></div>
+            <div id="character" class="maplayout"></div>
+            <div id="success">You win!</div>
+          </div>
         </div>
+      </div>
+      <div id="writtentext" class="writtentext1">
         <p id="instructions" class="text">
-            Use the arrow keys to reach the finish line!
+          Use the arrow keys to reach the finish line!
         </p>
+        <h1>The Amazing Maze Game</h1>
+      </div>
     </div>
-    <h1>The Amazing Maze Game</h1>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

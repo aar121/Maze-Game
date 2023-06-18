@@ -17,14 +17,14 @@
         x: 4,
         y: 1
     },
-    mapdesign:'black-white'
+    mapdesign:'red-blue'
     };  
 
 
 function MazeGame(id, maze) {
     this.prop = document.getElementById(id);
     this.tileNames = ['floor', 'wall'];
-    this.tilesDimension = 40; 
+    this.tilesDimension = 45; 
     this.map = maze.tile;
     this.mapdesign = maze.mapdesign;
     this.character = {...maze.character};
@@ -52,8 +52,27 @@ MazeGame.prototype.createProp = function(x,y,name) {
     prop.style.top = y * this.tilesDimension + 'px';
     return prop;
 }
-function init() {
+MazeGame.prototype.increaseSize = function(){
+    let gamemap = this.prop.querySelector('.map');
+    gamemap.style.height = this.gamemap.length * this.tilesDimension + 'px';
+    gamemap.style.width = this.gamemap[0].length * this.tilesDimension + 'px';
+}
+function start() {
     let game = new MazeGame('container-1', mazes[0]);
     game.populateMap();
+    game.increaseSize();
+    game.placeCharacter('');
+    game.placeCharacter('');
 }
-init();
+start();
+
+MazeGame.prototype.setcharacter = function(input) {
+    let x = this[input].x
+    let y = this[input].y
+    let character = this.createProp(x,y,input);
+    character.id = input;
+    character.style.borderRadius = this.tilesDimension + 'px';
+    let maplayout = this.prop.querySelector('#character');
+    maplayout.appendChild(character);
+    return character
+}
