@@ -6,7 +6,7 @@
             [0,0,1,1,0],
             [0,0,0,1,0],
             [0,1,0,1,0]
-            //the 0s and 1s represent the map tiles, either a wal tile or a floor tile
+            //the 0s and 1s represent the map tiles, either a wall tile or a floor tile
     ], 
     character: {
         x:0, 
@@ -52,27 +52,19 @@ MazeGame.prototype.createProp = function(x,y,name) {
     prop.style.top = y * this.tilesDimension + 'px';
     return prop;
 }
-MazeGame.prototype.increaseSize = function(){
-    let gamemap = this.prop.querySelector('.map');
-    gamemap.style.height = this.gamemap.length * this.tilesDimension + 'px';
-    gamemap.style.width = this.gamemap[0].length * this.tilesDimension + 'px';
+MazeGame.prototype.setcharacter = function(name) {
+    let x = this[name].x
+    let y = this[name].y
+    let character = this.createProp(x,y,name);
+    character.id = name;
+    let maplayout = this.prop.querySelector('#character');
+    maplayout.appendChild(character);
+    return character;
 }
 function start() {
     let game = new MazeGame('container-1', mazes[0]);
     game.populateMap();
-    game.increaseSize();
-    game.placeCharacter('');
-    game.placeCharacter('');
+    game.setcharacter('endTarget');
+    game.setcharacter('character');
 }
 start();
-
-MazeGame.prototype.setcharacter = function(input) {
-    let x = this[input].x
-    let y = this[input].y
-    let character = this.createProp(x,y,input);
-    character.id = input;
-    character.style.borderRadius = this.tilesDimension + 'px';
-    let maplayout = this.prop.querySelector('#character');
-    maplayout.appendChild(character);
-    return character
-}

@@ -30,3 +30,14 @@ div.maplayout div {
 .writtentext1 {
   text-align: center;
 }
+.character{
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/characters/golemidle.png');
+  border: 1px solid #98720b;
+}
+
+.endTarget {
+  background-color: rgb(201, 192, 255);
+  border: 1px solid #98720b;
+}
