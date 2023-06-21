@@ -67,7 +67,6 @@ MazeGame.prototype.setCharacter = function (name) {
 //add a function that will update the score of the character
 
 MazeGame.prototype.moveCharacter = function (event) {
-    console.log(event);
   event.preventDefault();
   if (event.code < 1 || event.code > 4) {
     return;
