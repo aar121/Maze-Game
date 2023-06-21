@@ -88,14 +88,14 @@ MazeGame.prototype.moveCharacter = function (event) {
   }
 };
 MazeGame.prototype.end = function () {
-  let body = document.querySelector("body");
   if (
     this.character.y == this.endTarget.y &&
     this.character.x == this.endTarget.x
   ) {
-    body.className = "success";
+    window.alert("You win!");
+    Sound.play
   } else {
-    body.className = "";
+    return;
   }
 };
 MazeGame.prototype.keypress = function () {
@@ -114,6 +114,7 @@ MazeGame.prototype.moveLeft = function () {
   }
   this.character.x -= 1;
   this.updateHorizontalPosition();
+  this.scoremaker();
 };
 MazeGame.prototype.moveUp = function () {
   if (this.character.y == 0) {
@@ -125,6 +126,7 @@ MazeGame.prototype.moveUp = function () {
   }
   this.character.y -= 1;
   this.updateVerticalPosition();
+  this.scoremaker();
 };
 MazeGame.prototype.moveRight = function () {
   if (this.character.x == this.map[this.character.y].length - 1) {
@@ -136,6 +138,7 @@ MazeGame.prototype.moveRight = function () {
   }
   this.character.x += 1;
   this.updateHorizontalPosition();
+  this.scoremaker();
 };
 MazeGame.prototype.moveDown = function () {
   if (this.character.y == this.map.length - 1) {
@@ -147,6 +150,7 @@ MazeGame.prototype.moveDown = function () {
   }
   this.character.y += 1;
   this.updateVerticalPosition();
+  this.scoremaker();
 };
 MazeGame.prototype.updateHorizontalPosition = function () {
   this.character.prop.style.left =
@@ -157,16 +161,14 @@ MazeGame.prototype.updateVerticalPosition = function () {
 };
 
 let score = 0;
+
 MazeGame.prototype.scoremaker = function () {
-  let scorecontainer = document.getElementsByClassName("scorecontainer")
-  let updateScore = () => {
-    if ((this.character.x += 1 || (this.character.y += 1))) {
-      score++;
-    }
-    scorecontainer.innerHTML = score;
-    console.log(score)
+    score++
+    let scorecontainer = document.getElementsByClassName("scorecontainer")[0];
+    scorecontainer.innerHTML = "Score: " + score;
   };
-}
+
+let Sound = new Audio('fanfare.mp3');
 
 function start() {
   let game = new MazeGame("container-1", mazes[0]);
@@ -175,6 +177,5 @@ function start() {
   let placement = game.setCharacter("character");
   game.character.prop = placement;
   game.keypress();
-  game.scoremaker();
 }
 start();

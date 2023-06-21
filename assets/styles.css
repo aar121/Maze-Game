@@ -4,10 +4,6 @@
   width: 200px;
   height: 300px;
 }
-/* .map {
-    display: flex;
-    position: relative;
-} */
 h1 {
   color: aqua;
   font-family: Arial, Helvetica, sans-serif;
@@ -31,7 +27,6 @@ div.maplayout div {
   text-align: center;
 }
 .character {
-  background-image: url('/assets/characters/golemidle.png');
   background-color: purple;
   width: 0;
   height: 0;
@@ -44,4 +39,8 @@ div.maplayout div {
 .endTarget {
   background-color: rgb(201, 192, 255);
   border: 1px solid #98720b;
+}
+
+button {
+  justify-content: end;
 }
