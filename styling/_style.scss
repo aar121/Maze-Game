@@ -1,0 +1,108 @@
+$aqua: #00ffff;
+$floor-color: #ff0000;
+$tile-color: #0000ff;
+$character-color: #800080;
+$border-color: #e1b847;
+$instructions-font: 24px;
+$title-font: 36px;
+$game-background: #03fce3;
+$button-color: #0000ff;
+$button-font: 20px;
+$target-color: #c9c0ff;
+$font-color: #000000;
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    height: 300px;
+    
+    h1 {
+      color: #00ffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+
+div.maplayout,
+div.maplayout div {
+    position: absolute;
+  }
+  
+  .red-blue {
+    & .floor {
+      background-color: $floor-color;
+    }
+  
+    & .wall {
+      background-color: $tile-color;
+    }
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .writtentext1 {
+      text-align: center;
+    }
+  }
+
+  .character {
+    background-color: $character-color;
+    width: 0;
+    height: 0;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    display: inline-block;
+    position: absolute;
+  }
+
+  .endTarget {
+    background-color: $aqua;
+    border: $target-color;
+  }
+
+  .text {
+    color: $font-color;
+    font-size: $instructions-font;
+  }
+
+  .scorecontainer {
+    background-color: $button-color;
+    font-size: $button-font;
+  }
+
+  @mixin important-note {
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+  }
+
+  @mixin titles {
+    color: #0000ff;
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  @mixin end-sequence {
+    color: red;
+    font-size: 24;
+  }
+
+  @function light-color($aqua) {
+    $set-light-color: lighten($aqua)
+  }
+
+  @function dark-color($font-color) {
+    $set-dark-color: darken($font-color)
+  }
+
+  .title {
+    @include titles;
+    width: 100 px / 10 px;
+    height: 20 px * 3 px;
+  }
+
+  $color: green;
+  @error "This is not a valid color: '#{$color}'.";
